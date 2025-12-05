@@ -16,7 +16,7 @@ for (let i = 0; i<dataForDates.elements.length; i++){
 }
 let jsonData = JSON.stringify(formArray); //to be readable
 //edited for this one here to be sent to the json
-fetch('/adminInJS', {
+fetch('/save', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: jsonData

@@ -1,0 +1,10 @@
+{
+    "name": "Cevent",
+    "short_name": "Cevent",
+    "scope": "/Cevent/",
+    "background_color": "#000000",
+    "theme_color":"#000000",
+    "display": "minimal-ui",
+    "orientation":"portrait",
+    "lang":"en-US"
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planner for Administrators</title>
+    <link rel="icon" href="/Images/admin_panel.png" type="image/png">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body{
+            background-color: white;
+            color: black;
+        }
+        /*all of ww3school's doing*/
+        .dark{
+            background-color: black;
+            color: white;
+        }
+        .blur-back{
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            filter: blur(20px);
+        }
+        .thyPass{
+            background-color: rgb(0,0,0); /*fallback*/
+            background-color: rgba(0, 0,0,0.4);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!--dark mode-->
+    <button type="button" onclick="blackie()">Dark mode</button>
+    <!--password "IShallWaveTheeGoldAndBlue"-->
+    <div class="blur-back">
+<div class="thyPass">
+    <label for="pass">Enter your password.</label>
+    <input type="password" name="What's the password?" id="pass">
+</div>
+    </div>
+<!--FORM-->
+    <form id="calendarData">
+        <label for="title">What should the title be?</label>
+        <input type="text" id="title">
+        <label for="sub">What is your description?</label>
+        <input type="text" id="sub">
+        <button type="button" onclick="conversion()">Submit</button>
+    </form>
+    <script src="adminInJS.js"></script>
+</body>
+</html>

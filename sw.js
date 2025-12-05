@@ -1,26 +1,20 @@
-const { cache } = require("react");
-
-//copy pasted from My Runs
-const CACHE_VERSION = '#69'
-const CACHE_NAME = `${CACHE_VERSION}th Cevent Version`; 
+const CACHE_VERSION = 'v49';
+const CACHE_NAME = `necessary-resources-${CACHE_VERSION}`; 
 
 self.addEventListener('install', (event) => {
 const BASE = self.location.origin + '/Cevent/';
 const urlsToCache = [
   BASE,
   BASE + 'index.html',
-  BASE + 'admin.html',
+  BASE + 'offline.html',
   BASE + 'manifest.json',
   BASE + 'announcements.json',
   BASE + 'ceventBody.js',
-  BASE + 'adminInJS.js',
   BASE + 'cevent.css',
-  BASE + 'sw.js',
-  BASE + 'Images/cevent_icon_option_a.png',
-  BASE + 'Images/admin_panel.png'
+  BASE + 'sw.js'
 ];
 
-//downloads new cache if detected
+
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
       for (const url of urlsToCache) {
@@ -35,7 +29,7 @@ const urlsToCache = [
   );
   self.skipWaiting();
 });
-//auto updates to new cache
+
 self.addEventListener('activate', event => {
 
   event.waitUntil(
@@ -48,7 +42,7 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-//if user is offline
+
 self.addEventListener('fetch', event => {
   if (event.request.mode === 'navigate') {
     event.respondWith(
@@ -73,25 +67,5 @@ self.addEventListener('fetch', event => {
 
       )
     
-  }
-});
-//handles cache updates
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'UPDATE_CACHE') {
-    const bussing = event.data.url;
-    const key = self.location.origin + '/Cevent/announcements.json';
-    caches.open(CACHE_NAME).then(cache => {
-      try{
-        const response = await fetch(bussing, {cache: 'no-store'});
-        if(response && response.ok){
-          await cache.put(key, response.clone());
-          console.log(key,"'s update.");
-        } else{
-          console.warn("It failed :( ", bussing, response && response.status);
-        }
-      } catch(err){
-        console.error("Couldn't update", bussing, err);
-      }
-    });
   }
 });

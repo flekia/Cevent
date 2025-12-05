@@ -1,3 +1,5 @@
+const { cache } = require("react");
+
 //copy pasted from My Runs
 const CACHE_VERSION = '#69'
 const CACHE_NAME = `${CACHE_VERSION}th Cevent Version`; 
@@ -18,7 +20,7 @@ const urlsToCache = [
   BASE + 'Images/admin_panel.png'
 ];
 
-
+//downloads new cache if detected
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
       for (const url of urlsToCache) {
@@ -33,7 +35,7 @@ const urlsToCache = [
   );
   self.skipWaiting();
 });
-
+//auto updates to new cache
 self.addEventListener('activate', event => {
 
   event.waitUntil(
@@ -46,7 +48,7 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-
+//if user is offline
 self.addEventListener('fetch', event => {
   if (event.request.mode === 'navigate') {
     event.respondWith(
@@ -71,5 +73,14 @@ self.addEventListener('fetch', event => {
 
       )
     
+  }
+});
+//handles cache updates
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'UPDATE_CACHE') {
+    caches.open(CACHE_NAME).then(cache => {
+      cache.add(event.data.url);
+      console.log('Cache updated. Reference: ', event.data.url);
+    });
   }
 });

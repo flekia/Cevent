@@ -22,6 +22,17 @@ fetch('/save', {
     body: jsonData
 })
 .then(send => send.json())
+.then(data => {
+    //updates sw's cache for every publish on json
+    if(navigator.serviceWorker.controller){
+        navigator.serviceWorker.controller.postMessage({
+            type: 'UPDATE_CACHE',
+            URL: 'Cevent/announcements.json'
+        });
+    }
+    console.log('Successfuly updated.');
+})
+.catch(error => console.error("Warning: ", error));
 }
 function blackie(){
     document.body.classList.toggle("dark");

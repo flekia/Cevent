@@ -78,9 +78,20 @@ self.addEventListener('fetch', event => {
 //handles cache updates
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'UPDATE_CACHE') {
+    const bussing = event.data.url;
+    const key = self.location.origin + '/Cevent/announcements.json';
     caches.open(CACHE_NAME).then(cache => {
-      cache.add(event.data.url);
-      console.log('Cache updated. Reference: ', event.data.url);
+      try{
+        const response = await fetch(bussing, {cache: 'no-store'});
+        if(response && response.ok){
+          await cache.put(key, response.clone());
+          console.log(key,"'s update.");
+        } else{
+          console.warn("It failed :( ", bussing, response && response.status);
+        }
+      } catch(err){
+        console.error("Couldn't update", bussing, err);
+      }
     });
   }
 });

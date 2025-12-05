@@ -27,7 +27,7 @@ fetch('/save', {
     if(navigator.serviceWorker.controller){
         navigator.serviceWorker.controller.postMessage({
             type: 'UPDATE_CACHE',
-            URL: 'Cevent/announcements.json'
+            URL: 'Cevent/announcements.json?t=' + new Date.now()
         });
     }
     console.log('Successfuly updated.');

@@ -1,0 +1,167 @@
+[
+  {
+    "year": "2025",
+    "month": "January",
+    "events": []
+  },
+  {
+    "year": "2025",
+    "month": "February",
+    "events": []
+  },
+  {
+    "year": "2025",
+    "month": "March",
+    "events": []
+  },
+  {
+    "year": "2025",
+    "month": "April",
+    "events": []
+  },
+  {
+    "year": "2025",
+    "month": "May",
+    "events": []
+  },
+  {
+    "year": "2025",
+    "month": "June",
+    "events": [
+        {"day": 12, "title": "Independence Day","detail":"Holiday"},
+        {"day": [13, 14, 16, 17, 18, 19], "title": "Final Exam Week", "detail": "Finals Exam"},
+        {"day": 23, "title": "Grade Consultation", "detail":"Check"}
+    ]
+  },
+  {
+    "year": "2025",
+    "month": "July",
+    "events": []
+  },
+  {
+    "year": "2025",
+    "month": "August",
+    "events": [
+        {"day": 21, "title": "Ninoy Aquino Day","detail":"Holiday"},
+        {"day": 25, "title": "National Heroes Day","detail":"Holiday"}
+    ]
+  },
+  {
+    "year": "2025",
+    "month": "September",
+    "events": [
+        {"day": [1,2,3,4,5,6], "title": "Midterm Exam Week", "detail": "Midterms Exam"},
+        {"day": 10, "title":"Grade Consultation","detail":"Check"}
+    ]
+  },
+  {
+    "year": "2025",
+    "month": "October",
+    "events": [
+        {"day": [16,17,18,20,21,22], "title":"Final Exam Week", "detail": "Finals Exam"},
+        {"day":[23,24,27,28,29,30], "title": "Term Break", "detail": "None"},
+        {"day": 25, "title":"Grade Consultation", "detail": "Check"},
+        {"day": 31, "title": "Halloween","detail":"Holiday"}
+    ]
+  },
+  {
+    "year": "2025",
+    "month": "November",
+    "events": [
+        {"day": 1, "title": "All Saints' Day","detail":"Holiday"},
+        {"day": 2, "title": "All Souls' Day","detail":"Holiday"},
+        {"day": 30, "title": "Bonifacio Day","detail":"Holiday"} 
+    ]
+  },
+  {
+    "year": "2025",
+    "month": "December",
+    "events": [
+        {"day": [15,16,17,18,19,20], "title":"Midterm Exam Week","detail":"Midterms Exam"},
+        {"day": 24, "title":"Christmas Eve","detail":"Holiday"},
+        {"day": 25, "title": "Christmas Day","detail":"Holiday"},
+        {"day": 30, "title":"Rizal Day","detail":"Holiday"},
+        {"day":31,"title": "New Year's Eve","detail":"Holiday"}
+    ]
+  },
+  {
+    "year": "2026",
+    "month": "January",
+    "events": [
+        {"day": 1, "title":"New Year's Day","detail":"Holiday"},
+        {"day": 5, "title":"Grade Consultation","detail":"Check"}
+    ]
+  },
+  {
+    "year": "2026",
+    "month": "February",
+    "events": [
+        {"day":[12,13,14,16,18,19], "title":"Final Exam Week","detail":"Finals Exam"},
+        {"day": 17, "title":"Chinese New Year","detail":"Holiday"},
+        {"day": 21, "title":"Grade Consultation","detail":"Holiday"},
+        {"day": 25,"title":"EDSA Revolution Anniversary","detail":"Holiday"},
+        {"day": [23,24,25,26,27,28], "title": "Term Break"}
+    ]
+  },
+  {
+    "year": "2026",
+    "month": "March",
+    "events": []
+  },
+  {
+    "year": "2026",
+    "month": "April",
+    "events": [
+        {"day": 2, "title": "Maundy Thursday","detail":"Holiday"},
+        {"day": 3, "title": "Good Friday","detail":"Holiday"},
+        {"day": 4, "title": "Black Saturday","detail":"Holiday"},
+        {"day": [13,14,15,16,17,18], "title":"Midterm Exam Week", "detail": "Midterms Exam"},
+        {"day": 22, "title":"Grade Consultation", "detail":"Check"}
+    ]
+  },
+  {
+    "year": "2026",
+    "month": "May",
+    "events": [
+        {"day": 1, "title":"Labor Day","detail":"Holiday"}
+    ]
+  },
+  {
+    "year": "2026",
+    "month": "June",
+    "events": [
+        {"day": [1,2,3,4,5,6], "title":"Final Exam Week", "detail":"Finals Exam"},
+        {"day": 10, "title":"Grade Consultation", "detail":"Check"}
+    ]
+  },
+  {
+    "year": "2026",
+    "month": "July",
+    "events": []
+  },
+  {
+    "year": "2026",
+    "month": "August",
+    "events": []
+  },
+  {
+    "year": "2026",
+    "month": "September",
+    "events": []
+  },
+  {
+    "year": "2026",
+    "month": "October",
+    "events": []
+  },
+  {
+    "year": "2026",
+    "month": "November",
+    "events": []
+  },
+  {
+    "year": "2026",
+    "month": "December",
+    "events": []
+  }
+]

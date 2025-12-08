@@ -1,0 +1,212 @@
+body{
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+/*top navigation*/
+#icon{
+    height: 50px;
+    width: 50px;
+    margin: 0;
+    padding: 5px;
+}
+#titles{
+    margin: 0;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 10px 0 0 1px;
+}
+.nav{
+    display: flex;
+    overflow: hidden;
+    background-color: gray;
+    float: none;
+}
+.nav a{
+    float: right;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+}
+.whatToDo{
+    margin-left: 8px;
+    color: white;
+    padding: 6px 8px;
+}
+.deadSpace{
+    flex: 1;
+}
+/*popup*/
+.poping{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  /* overlay so popup blocks clicks and dims background */
+  background-color: rgba(0,0,0,0.35);
+  z-index: 9999;
+  pointer-events: auto;
+}
+.main .popung{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 18px 22px;
+  border-radius: 8px;
+  background: #444;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+  z-index: 10000;
+  max-width: 90%;
+  width: 420px;
+  transition:  transform 2s ease;
+}
+.popContgent{
+    text-align: center;
+    color: white;
+}
+button{
+    background-color: rgb(117, 117, 117);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+}   
+button:hover{
+    background-color: black;
+}
+#previousMonth, #nextMonth {
+    color: black;
+}
+/*actual calendar*/
+.calendar{
+    width: 550px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.calendar-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    margin: auto;
+}
+.calendar-header button {
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin: 0 12px;
+}
+#month-year{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.calendar-weekdays, .calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.calendar-weekdays div, .calendar-dates div {
+  text-align: center;
+  padding: 10px;
+}
+.calendar-weekdays {
+  background-color: #eaeef3;
+}
+.calendar-weekdays div {
+  font-weight: bold;
+}
+.calendar-dates div {
+  border-bottom: 1px solid #eaeef3;
+  cursor: pointer;
+}
+.calendar-dates div:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+.current-date {
+  background-color: #000000;
+  color: #fff;
+  border-radius: 5%;
+}
+
+/*event color classes */
+.calendar-dates .evt-holiday {
+  background-color: rebeccapurple;
+  color: white;
+  border-radius: 6px;
+}
+.calendar-dates .evt-midterm {
+  background-color: #0066cc;
+  color: white;
+  border-radius: 6px;
+}
+.calendar-dates .evt-finals {
+  background-color: gold;
+  color: white;
+  border-radius: 6px;
+}
+.calendar-dates .evt-check {
+  background-color: #28a745;
+  color: white;
+  border-radius: 6px;
+}
+.calendar-dates .evt-none {
+  background-color: transparent;
+  color: inherit;
+}
+
+/*sunday always red*/
+.calendar-dates .weekday-sun {
+  color: red !important;
+}
+
+/*date-cell layout used by JS renderer*/
+.calendar-dates .date-cell {
+  padding: 6px;
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.calendar-dates .day-num { font-weight: 600; }
+.calendar-dates .event-badge {
+  font-size: 0.75rem;
+  margin-top: 6px;
+  opacity: 0.95;
+}
+.calendar-dates .current-date {
+  outline: 2px solid #ffcc00;
+  outline-offset: -3px;
+}
+
+/*event*/
+.events-board {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-top: 2px solid #ddd;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 6px;
+}
+
+.events-board h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.event-row {
+  background-color: white;
+  border-radius: 4px;
+}

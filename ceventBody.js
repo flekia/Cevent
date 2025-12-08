@@ -1,7 +1,7 @@
 const askingCustomer = document.getElementById("questionOfThyUser");
 const addEvents = document.getElementById("addEvents");
 const pip = document.getElementById("popup");
-const piop = document.getElementById("popupEvent")
+const piop = document.getElementById("popupEvent");
 const title = document.getElementById("tite");
 const text = document.getElementById("text");
 const btn = document.getElementById("okayISeeYou");
@@ -9,6 +9,33 @@ const btnSub = document.getElementById("submits");
 const btnCan = document.getElementById("cancel");
 const starts = document.getElementById("startOfEvent");
 const ends = document.getElementById("endOfEvent");
+const themesOfCustomer = document.getElementById("themes");
+const peepee = document.getElementById("popupThemes");
+const themesBtn = peepee.querySelector("button[type='button']");
+const offlineOrNot = document.getElementById("popupNotif");
+const offlineButt = document.getElementById("okayISeeYouSoon");
+//themes
+themesOfCustomer.onclick = function(){
+    mainPopup.style.display = 'none';
+    pip.style.display = 'none';
+    title.textContent = "Change Themes";
+    peepee.style.display = "block";
+    themesBtn.onclick = function(){peepee.style.display = "none";}
+}
+//stolen from My Runs (my first project 🥹)
+function themeChange(theme){
+    const all = ["vanta", "white"];
+    document.body.classList.remove(...all);
+    document.body.classList.add(theme);
+    localStorage.setItem("preferredTheme", theme);
+}
+document.addEventListener("DOMContentLoaded", function(){
+    const savedTheme = localStorage.getItem("preferredTheme") || "white";
+    themeChange(savedTheme);
+    offlineOrNot.style.display = "block";
+    offlineButt.onclick = function(){offlineOrNot.style.display = "none";}
+});
+//question
 askingCustomer.onclick = function(){
     pip.style.display = "block";
     title.innerText = "Unfamilliar?";
@@ -18,6 +45,7 @@ askingCustomer.onclick = function(){
         pip.style.display = "none";
     };
 };
+//event adder
 addEvents.onclick = function(){
     pip.style.display = "block";
     title.innerText = "Another Event?";
@@ -205,7 +233,7 @@ nextMonthBtn.addEventListener('click', () => {
   }
   renderCalendar(currentMonth, currentYear);
 });
-// allow user to click the month-year to jump to any month (accepts number 1-12 or month name, optional year) -Claude. modified for a popup instead of an alert to not make it look ugly -flekia
+//allow user to click the month-year to jump to any month (accepts number 1-12 or month name, optional year) -Claude. modified for a popup instead of an alert to not make it look ugly -flekia
 monthYear.addEventListener('click', () => {
   // create a temporary month-picker overlay without destroying existing popup content
   const container = eventPopup.querySelector('.popContgent');
@@ -218,7 +246,7 @@ monthYear.addEventListener('click', () => {
   temp.style.alignItems = 'center';
   temp.style.gap = '10px';
   const label = document.createElement('label');
-  label.textContent = 'Jump to month';
+  label.textContent = 'Where to, traveller?';
   const monthInput = document.createElement('input');
   monthInput.type = 'month';
   const mm = String(currentMonth + 1).padStart(2,'0');
@@ -469,6 +497,7 @@ function renderEventsBoard() {
     board.id = 'user-events-board';
     board.className = 'events-board';
     document.body.appendChild(board);
+    
   }
   board.innerHTML = '';
 
@@ -494,7 +523,6 @@ function renderEventsBoard() {
       eventRow.style.justifyContent = 'space-between';
       eventRow.style.alignItems = 'center';
       eventRow.style.padding = '8px';
-      eventRow.style.borderBottom = '1px solid #ddd';
       eventRow.style.marginBottom = '4px';
 
       const eventInfo = document.createElement('span');

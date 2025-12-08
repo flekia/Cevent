@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cevent</title>
-    <link rel="icon" href="/Images/cevent_icon_option_a.png" type="image/png">
+    <link rel="icon" href="Images/cevent_icon_option_a.png" type="image/png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="cevent.css">
 </head>
@@ -16,13 +16,32 @@
     <div class="nav">
         <img src="Images/cevent_icon_option_a.png" alt="Cevent icon" id="icon">
         <h3 id="titles">Cevent</h3>
-        <div class="deadSpace"></div>
+        <div class="deadSpace">
+            <button id="previousMonth"><</button>
+            <div id="month-year"></div>
+            <button id="nextMonth">></button>
+        </div>
     <div class="whatToDo">
+        <a href="#" id="themes">&#x1F3A8;</a>
         <a id="questionOfThyUser" href="#"><b>?</b></a>
         <a id="addEvents" href="#"><b>+</b></a>
     </div>
     </div>
-    <!--popup-->
+    
+    <!--popup for themes-->
+    <div class="poping" id="popupThemes">
+        <div class="popung" id="popaps">
+            <div class="popContgent">
+                <h2 id="tite">Change your themes here:</h2>
+    
+    <button accesskey="b" style="background: black;color: white; border: gray 2px solid;" onclick="themeChange('vanta')">Pure Black</button>
+    <button accesskey="w" style="background: white;color: black; border: gainsboro 2px solid;" onclick="themeChange('white')">Pure White</button>
+                    
+                <br><button type="button" id="closeTheme">Okay!</button>
+            </div>
+        </div>
+    </div>
+    <!--popup in general-->
     <div class="poping" id="popup">
         <div class="popung" id="popaps">
             <div class="popContgent">
@@ -32,6 +51,7 @@
             </div>
         </div>
     </div>
+    <!--input for calendar-->
     <div class="poping" id="popupEvent">
         <div class="popung" id="popaps">
             <div class="popContgent">
@@ -50,12 +70,7 @@
     </div>
     <!--calendar-->
     <div class="calendar">
-        <div class="calendar-header">
-            <button id="previousMonth"><</button>
-            <div id="month-year"></div>
-            <button id="nextMonth">></button>
-</div>
-    </div>
+        </div>
     <div class="calendar-body">
         <div class="calendar-weekdays">
             <div>Sun</div>

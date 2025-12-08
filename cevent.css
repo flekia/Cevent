@@ -15,6 +15,7 @@ body{
     font-size: 1.25rem;
     font-weight: 600;
     padding: 10px 0 0 1px;
+    user-select: none;
 }
 .nav{
     display: flex;
@@ -38,6 +39,8 @@ body{
 }
 .deadSpace{
     flex: 1;
+    display: flex;
+    justify-content: center;
 }
 /*popup*/
 .poping{
@@ -48,7 +51,6 @@ body{
   width: 100%;
   height: 100%;
   user-select: none;
-  /* overlay so popup blocks clicks and dims background */
   background-color: rgba(0,0,0,0.35);
   z-index: 9999;
   pointer-events: auto;
@@ -60,8 +62,8 @@ body{
   transform: translate(-50%, -50%);
   padding: 18px 22px;
   border-radius: 8px;
-  background: #444;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+  background: #f9f9f9;
+  color: black;
   z-index: 10000;
   max-width: 90%;
   width: 420px;
@@ -69,33 +71,32 @@ body{
 }
 .popContgent{
     text-align: center;
-    color: white;
+    color: black;
 }
 button{
-    background-color: rgb(117, 117, 117);
-    color: white;
+    background-color: whitesmoke;
+    color: black;
     padding: 5px 10px;
     border: none;
+    cursor: pointer;
 }   
 button:hover{
-    background-color: black;
+    background-color: gainsboro;
 }
 #previousMonth, #nextMonth {
     color: black;
 }
+#previousMonth:hover, #nextMonth:hover{
+    color: white;
+    background-color: #000000;
+}
 /*actual calendar*/
 .calendar{
     width: 550px;
-    background-color: white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 .calendar-header{
+    flex-direction: row;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    width: 100%;
-    margin: auto;
 }
 .calendar-header button {
     text-decoration: none;
@@ -108,6 +109,8 @@ button:hover{
 #month-year{
     font-size: 1.2em;
     font-weight: bold;
+    background-color: transparent;
+    padding: 10px;
 }
 .calendar-weekdays, .calendar-dates {
   display: grid;
@@ -128,8 +131,8 @@ button:hover{
   cursor: pointer;
 }
 .calendar-dates div:hover {
-  background-color: #f1f1f1;
-  color: black;
+  background-color: black;
+  color: white;
 }
 .current-date {
   background-color: #000000;
@@ -209,4 +212,52 @@ button:hover{
 .event-row {
   background-color: white;
   border-radius: 4px;
+}
+/*vanta*/
+body.vanta {
+    background-color: #000000;
+    color: white;
+}
+body.vanta .nav {
+    background-color: rgb(29, 29, 29);
+}
+body.vanta .calendar-weekdays {
+    background-color: #333;
+}
+body.vanta .calendar-dates div {
+    border-bottom-color: #444;
+}
+body.vanta .events-board {
+    background-color: #222;
+    border-top-color: #444;
+}
+body.vanta .events-board h3 {
+    color: white;
+}
+body.vanta .event-row {
+    background-color: #333;
+    border-bottom-color: #555;
+}
+.vanta #previousMonth , .vanta #nextMonth{
+    background-color: rgb(29,29,29);
+    color: white;
+}
+.vanta #previousMonth:hover, .vanta #nextMonth:hover{
+    background-color: #333;
+}
+.vanta .calendar-dates div:hover {
+  background-color: gray;
+  color: black;
+}
+/*white*/
+body.white {
+    background-color: white;
+    color: black;
+}
+body.white .nav {
+    background-color: gray;
+}
+.white .popung{
+    background-color: #f9f9f9;
+    color: black;
 }

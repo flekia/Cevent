@@ -85,6 +85,7 @@ button:hover{
 }
 #previousMonth, #nextMonth {
     color: black;
+    background-color: gray;
 }
 #previousMonth:hover, #nextMonth:hover{
     color: white;
@@ -248,6 +249,10 @@ body.vanta .event-row {
 .vanta .calendar-dates div:hover {
   background-color: gray;
   color: black;
+}
+.vanta .popung, .vanta h2 {
+    background-color: #333;
+    color: white;
 }
 /*white*/
 body.white {

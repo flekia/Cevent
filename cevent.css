@@ -1,6 +1,9 @@
 body{
-    margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  ;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 /*top navigation*/
 #icon{
@@ -46,16 +49,13 @@ body{
 .poping{
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   user-select: none;
   background-color: rgba(0,0,0,0.35);
   z-index: 9999;
   pointer-events: auto;
 }
-.main .popung{
+.poping .popung{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -65,9 +65,9 @@ body{
   background: #f9f9f9;
   color: black;
   z-index: 10000;
-  max-width: 90%;
+  max-width: 96vw;
   width: 420px;
-  transition:  transform 2s ease;
+  box-sizing: border-box;
 }
 .popContgent{
     text-align: center;
@@ -93,7 +93,9 @@ button:hover{
 }
 /*actual calendar*/
 .calendar{
-    width: 550px;
+  width: 100%;
+  max-width: 550px;
+  box-sizing: border-box;
 }
 .calendar-header{
     flex-direction: row;
@@ -130,6 +132,8 @@ button:hover{
 .calendar-dates div {
   border-bottom: 1px solid #eaeef3;
   cursor: pointer;
+  box-sizing: border-box;
+  word-break:keep-all;
 }
 .calendar-dates div:hover {
   background-color: black;
@@ -234,6 +238,7 @@ body.vanta .events-board {
 }
 body.vanta .events-board h3 {
     color: white;
+    font-size: 10px;
 }
 body.vanta .event-row {
     background-color: #333;
@@ -265,4 +270,84 @@ body.white .nav {
 .white .popung{
     background-color: #f9f9f9;
     color: black;
+}
+
+@media (max-width: 420px){
+  .calendar{
+    width: 100%;
+    max-width: 398px;
+    padding: 0 4px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  .calendar-dates{
+    display: grid;
+    grid-template-columns: repeat(7, minmax(30px, 1fr));
+  }
+  .deadSpace{
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0 2px;
+  }
+  .deadSpace #previousMonth, .deadSpace #nextMonth{
+    font-size: 20px;
+    font-weight: 500;
+    padding: 4px;
+    white-space: nowrap;
+  }
+  .whatToDo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-left: 0;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .whatToDo a{
+    padding: 4px 6px;
+    font-size: 1rem;
+    text-align: right;
+    display: block;
+  }
+  .calendar-header button{
+    font-size: 1.1rem;
+    padding: 6px 2px;
+    margin: 0 4px;
+  }
+  #month-year{
+    font-size: 1rem;
+    padding: 6px;
+  }
+  .calendar-weekdays div{
+    padding: 8px 2px;
+    font-size: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .calendar-dates .date-cell{
+    min-height: 44px;
+    padding: 3px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .calendar-dates .event-badge{
+    margin-top: 1px;
+    font-size: 5px;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+  }
+  .calendar-weekdays, .calendar-dates{
+    grid-template-columns: repeat(7 minmax(30px, 38px));
+  }
 }

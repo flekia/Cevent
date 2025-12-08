@@ -29,12 +29,41 @@ function themeChange(theme){
     document.body.classList.add(theme);
     localStorage.setItem("preferredTheme", theme);
 }
+function isMobile() {
+      return window.innerWidth <= 768;
+    }
+    function adjustNavLayout() {
+      const topnav = document.getElementById("nav") || document.querySelector(".nav");
+      if (isMobile()){
+        document.body.classList.add("mobile");
+        document.body.classList.remove("desktop");
+        if(topnav){
+          topnav.style.width = "";
+          topnav.style.height = "";
+          topnav.style.position = "";
+          topnav.style.flexDirection = "";
+        }
+      } else {
+        document.body.classList.add("desktop");
+        document.body.classList.remove("mobile");
+        if(topnav){
+          topnav.style.width = "";
+          topnav.style.height = "";
+          topnav.style.position = "";
+          topnav.style.flexDirection = "";
+        }
+      }
+      document.body.classList.remove("desktop", "mobile");
+    }
 document.addEventListener("DOMContentLoaded", function(){
     const savedTheme = localStorage.getItem("preferredTheme") || "white";
     themeChange(savedTheme);
     offlineOrNot.style.display = "block";
     offlineButt.onclick = function(){offlineOrNot.style.display = "none";}
+    adjustNavLayout();
 });
+document.addEventListener("resize", adjustNavLayout);
+
 //question
 askingCustomer.onclick = function(){
     pip.style.display = "block";

@@ -67,9 +67,9 @@ document.addEventListener("resize", adjustNavLayout);
 //question
 askingCustomer.onclick = function(){
     pip.style.display = "block";
-    title.innerText = "Unfamilliar?";
-    text.innerText = `Cevent is a simple calendar planner that helps you keep track. Click + to add events, and if events overlap, there will be a warning if you want to continue or not!`;
-    btn.innerText = "Got it!";
+    title.textContent = "Unfamilliar?";
+    text.textContent = `Cevent is a simple calendar planner that helps you keep track. Click + to add events, and if events overlap, there will be a warning if you want to continue or not!`;
+    btn.textContent = "Got it!";
     btn.onclick = function(){
         pip.style.display = "none";
     };
@@ -77,9 +77,9 @@ askingCustomer.onclick = function(){
 //event adder
 addEvents.onclick = function(){
     pip.style.display = "block";
-    title.innerText = "Another Event?";
-    text.innerText = "Just add the year, month, day, title, and detail of your event.";
-    btn.innerText = "Got it!";
+    title.textContent = "Another Event?";
+    text.textContent = "Just add the year, month, day, title, and detail of your event.";
+    btn.textContent = "Got it!";
     btn.onclick = function(){
         pip.style.display = "none";
         piop.style.display = "block";
@@ -358,9 +358,9 @@ eventSubmit.onclick = function() {
   const endVal = document.getElementById('endOfEvent') ? document.getElementById('endOfEvent').value : '';
   if (!startVal || !endVal){
     pip.style.display = 'block';
-    title.innerText = "Incomplete...";
-    text.innerText = "Please provide both start and end dates.";
-    btn.innerText = "Okay";
+    title.textContent = "Incomplete...";
+    text.textContent = "Please provide both start and end dates.";
+    btn.textContent = "Okay";
     btn.addEventListener("click",function(){
         pip.style.display = "none";
     });
@@ -370,9 +370,9 @@ eventSubmit.onclick = function() {
   const endDate = new Date(endVal);
   if (endDate < startDate){
     pip.style.display = 'block';
-    title.innerText = "Are you a time traveller?"; //bernardo
-    text.innerText = "Unless you are Sir Odranreb Guillermo, you're not a time traveler! (Your end date is before the start date)";
-    btn.innerText = "Okay";
+    title.textContent = "Are you a time traveller?"; //bernardo
+    text.textContent = "Unless you are Sir Odranreb Guillermo, you're not a time traveler! (Your end date is before the start date)";
+    btn.textContent = "Okay";
     btn.addEventListener("click",function(){
         pip.style.display = "none";
     });
@@ -420,16 +420,16 @@ eventSubmit.onclick = function() {
   if (conflicts.length > 0){
     const baseConflicts = conflicts.filter(c => c.type === 'base').map(c => `${c.when}: ${c.event.title} (${c.event.detail})`);
     const personalConflicts = conflicts.filter(c => c.type === 'personal').map(c => `${c.when}: ${c.event.title} (${c.event.detail})`);
-    let msg = 'This event has conflicts:\n';
-    if (baseConflicts.length > 0) msg += "NU's dates:\n" + baseConflicts.join('\n') + '\n';
+    let msg = '';
+    if (baseConflicts.length > 0) msg += "This has conflict on NU's dates/holidays:\n" + baseConflicts.join('\n') + '\n';
     if (personalConflicts.length > 0) msg += 'Your other events:\n' + personalConflicts.join('\n') + '\n';
     msg += 'Do you want to continue?';
     eventPopup.style.display = 'none';
     pip.style.zIndex = "5";
     pip.style.display = "block";
-    title.innerText = "More than 1 event?!";
-    text.innerText = msg;
-    btn.innerText = "Continue";
+    title.textContent = "More than 1 event?!";
+    text.textContent = msg;
+    btn.textContent = "Continue";
     //cancel button
     let cancel = document.getElementById('__pip_cancel');
     if (cancel){
@@ -438,7 +438,7 @@ eventSubmit.onclick = function() {
     cancel = document.createElement("button");
     cancel.type = "button";
     cancel.id = "__pip_cancel";
-    cancel.innerText = "No";
+    cancel.textContent = "No";
     cancel.style.padding = "5px 10px";
     cancel.style.border = "none";
     if (btn.parentNode){
@@ -494,9 +494,9 @@ eventSubmit.onclick = function() {
     renderCalendar(currentMonth, currentYear);
     renderEventsBoard();
     pip.style.display = "block";
-    title.innerText = "Done!";
-    text.innerText = "Your event is now saved!";
-    btn.innerText = "Great!";
+    title.textContent = "Done!";
+    text.textContent = "Your event is now saved!";
+    btn.textContent = "Great!";
     btn.onclick = function(){
       pip.style.display = "none";
     };

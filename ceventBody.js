@@ -420,8 +420,8 @@ eventSubmit.onclick = function() {
   if (conflicts.length > 0){
     const baseConflicts = conflicts.filter(c => c.type === 'base').map(c => `${c.when}: ${c.event.title} (${c.event.detail})`);
     const personalConflicts = conflicts.filter(c => c.type === 'personal').map(c => `${c.when}: ${c.event.title} (${c.event.detail})`);
-    let msg;
-    if (baseConflicts.length > 0) msg += "This has conflict on NU's dates/holidays:\n" + baseConflicts.join('\n') + '\n';
+    let msg = 'These events conflict with your personal events.';
+    if (baseConflicts.length > 0) msg += "" + baseConflicts.join('\n') + '\n';
     if (personalConflicts.length > 0) msg += 'Your other events:\n' + personalConflicts.join('\n') + '\n';
     msg += 'Do you want to continue?';
     eventPopup.style.display = 'none';

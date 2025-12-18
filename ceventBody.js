@@ -350,8 +350,8 @@ fetch('announcements.json').then(r => r.ok ? r.json() : Promise.reject('failed')
 //To add events
 eventSubmit.onclick = function() {
   // query inputs fresh to handle dynamic content safely
-  const title = (document.getElementById('eventTitle') && document.getElementById('eventTitle').value) ? document.getElementById('eventTitle').value.trim() : '';
-  const detail = (document.getElementById('eventDetail') && document.getElementById('eventDetail').value) ? document.getElementById('eventDetail').value.trim() : '';
+  const title = document.getElementById('eventTitle')?.value.trim() || '';
+  const detail = document.getElementById('eventDetail')?.value.trim() || '';
   const startVal = document.getElementById('startOfEvent') ? document.getElementById('startOfEvent').value : '';
   const endVal = document.getElementById('endOfEvent') ? document.getElementById('endOfEvent').value : '';
   if (!startVal || !endVal){

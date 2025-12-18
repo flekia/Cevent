@@ -57,7 +57,7 @@ self.addEventListener('fetch', event => {
         })
         .catch(() => {
           console.warn("I'm serving the offline.html version.");
-          return caches.match(self.location.origin + '/Cevent/offline.html');
+          return caches.match(BASE + 'offline.html');
   })
 );
   } else {

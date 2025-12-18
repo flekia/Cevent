@@ -58,8 +58,6 @@ function isMobile() {
 document.addEventListener("DOMContentLoaded", function(){
     const savedTheme = localStorage.getItem("preferredTheme") || "white";
     themeChange(savedTheme);
-    offlineOrNot.style.display = "block";
-    offlineButt.onclick = function(){offlineOrNot.style.display = "none";}
     adjustNavLayout();
 });
 document.addEventListener("resize", adjustNavLayout);
@@ -67,9 +65,9 @@ document.addEventListener("resize", adjustNavLayout);
 //question
 askingCustomer.onclick = function(){
     pip.style.display = "block";
-    title.textContent = "Unfamilliar?";
-    text.textContent = "Cevent is a simple calendar planner that helps you keep track. Click + to add events, and if events overlap, there will be a warning if you want to continue or not!";
-    btn.textContent = "Got it!";
+    title.innerText = "Unfamilliar?";
+    text.innerText = `Cevent is a simple calendar planner that helps you keep track. Click + to add events, and if events overlap, there will be a warning if you want to continue or not!`;
+    btn.innerText = "Got it!";
     btn.onclick = function(){
         pip.style.display = "none";
     };
@@ -77,9 +75,9 @@ askingCustomer.onclick = function(){
 //event adder
 addEvents.onclick = function(){
     pip.style.display = "block";
-    title.textContent = "Another Event?";
-    text.textContent = "Just add the year, month, day, title, and detail of your event.";
-    btn.textContent = "Got it!";
+    title.innerText = "Another Event?";
+    text.innerText = "Just add the year, month, day, title, and detail of your event.";
+    btn.innerText = "Got it!";
     btn.onclick = function(){
         pip.style.display = "none";
         piop.style.display = "block";
@@ -358,9 +356,9 @@ eventSubmit.onclick = function() {
   const endVal = document.getElementById('endOfEvent') ? document.getElementById('endOfEvent').value : '';
   if (!startVal || !endVal){
     pip.style.display = 'block';
-    title.textContent = "Incomplete...";
-    text.textContent = "Please provide both start and end dates.";
-    btn.textContent = "Okay";
+    title.innerText = "Incomplete...";
+    text.innerText = "Please provide both start and end dates.";
+    btn.innerText = "Okay";
     btn.addEventListener("click",function(){
         pip.style.display = "none";
     });
@@ -370,9 +368,9 @@ eventSubmit.onclick = function() {
   const endDate = new Date(endVal);
   if (endDate < startDate){
     pip.style.display = 'block';
-    title.textContent = "Are you a time traveller?"; //bernardo
-    text.textContent = "Unless you are Sir Odranreb Guillermo, you're not a time traveler! (Your end date is before the start date)";
-    btn.textContent = "Okay";
+    title.innerText = "Are you a time traveller?"; //bernardo
+    text.innerText = "Unless you are Sir Odranreb Guillermo, you're not a time traveler! (Your end date is before the start date)";
+    btn.innerText = "Okay";
     btn.addEventListener("click",function(){
         pip.style.display = "none";
     });
@@ -420,16 +418,16 @@ eventSubmit.onclick = function() {
   if (conflicts.length > 0){
     const baseConflicts = conflicts.filter(c => c.type === 'base').map(c => `${c.when}: ${c.event.title} (${c.event.detail})`);
     const personalConflicts = conflicts.filter(c => c.type === 'personal').map(c => `${c.when}: ${c.event.title} (${c.event.detail})`);
-    let msg = 'These events conflict with your personal events.';
-    if (baseConflicts.length > 0) msg += "" + baseConflicts.join('\n') + '\n';
+    let msg = 'This event has conflicts:\n';
+    if (baseConflicts.length > 0) msg += "NU's dates:\n" + baseConflicts.join('\n') + '\n';
     if (personalConflicts.length > 0) msg += 'Your other events:\n' + personalConflicts.join('\n') + '\n';
     msg += 'Do you want to continue?';
     eventPopup.style.display = 'none';
     pip.style.zIndex = "5";
     pip.style.display = "block";
-    title.textContent = "More than 1 event?!";
-    text.textContent = msg;
-    btn.textContent = "Continue";
+    title.innerText = "More than 1 event?!";
+    text.innerText = msg;
+    btn.innerText = "Continue";
     //cancel button
     let cancel = document.getElementById('__pip_cancel');
     if (cancel){
@@ -438,7 +436,7 @@ eventSubmit.onclick = function() {
     cancel = document.createElement("button");
     cancel.type = "button";
     cancel.id = "__pip_cancel";
-    cancel.textContent = "No";
+    cancel.innerText = "No";
     cancel.style.padding = "5px 10px";
     cancel.style.border = "none";
     if (btn.parentNode){
@@ -494,9 +492,9 @@ eventSubmit.onclick = function() {
     renderCalendar(currentMonth, currentYear);
     renderEventsBoard();
     pip.style.display = "block";
-    title.textContent = "Done!";
-    text.textContent = "Your event is now saved!";
-    btn.textContent = "Great!";
+    title.innerText = "Done!";
+    text.innerText = "Your event is now saved!";
+    btn.innerText = "Great!";
     btn.onclick = function(){
       pip.style.display = "none";
     };
@@ -586,6 +584,5 @@ function renderEventsBoard() {
 
 // Initial render of events board
 renderEventsBoard();
-//to run the service worker
-      navigator.serviceWorker.register('/Cevent/sw.js', {scope: '/Cevent/'});
+navigator.serviceWorker.register('/Cevent/sw.js', {scope: '/Cevent/'});
       console.log("sw.js now working.");

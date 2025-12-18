@@ -68,7 +68,7 @@ document.addEventListener("resize", adjustNavLayout);
 askingCustomer.onclick = function(){
     pip.style.display = "block";
     title.textContent = "Unfamilliar?";
-    text.textContent = `Cevent is a simple calendar planner that helps you keep track. Click + to add events, and if events overlap, there will be a warning if you want to continue or not!`;
+    text.textContent = "Cevent is a simple calendar planner that helps you keep track. Click + to add events, and if events overlap, there will be a warning if you want to continue or not!";
     btn.textContent = "Got it!";
     btn.onclick = function(){
         pip.style.display = "none";

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v106';
+const CACHE_VERSION = 'v107';
 const CACHE_NAME = `calendar-update${CACHE_VERSION}`; 
 
 self.addEventListener('install', (event) => {
@@ -28,6 +28,7 @@ const urlsToCache = [
     })
   );
   self.skipWaiting();
+  console.log("Installed other files.")
 });
 
 self.addEventListener('activate', event => {

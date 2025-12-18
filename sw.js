@@ -2,7 +2,7 @@ const CACHE_VERSION = 'v107';
 const CACHE_NAME = `calendar-update${CACHE_VERSION}`; 
 
 self.addEventListener('install', (event) => {
-const BASE = self.location.origin + self.location.pathname.split('/')[1] + '/';
+const BASE = self.location.origin + '/Cevent/';
 const urlsToCache = [
   BASE,
   BASE + 'index.html',

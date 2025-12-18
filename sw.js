@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v1116';
+const CACHE_VERSION = 'v1117';
 const CACHE_NAME = `calendar-update${CACHE_VERSION}`; 
 const BASE = '/Cevent/';
 self.addEventListener('install', (event) => {

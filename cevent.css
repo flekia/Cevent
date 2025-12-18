@@ -259,7 +259,7 @@ body.vanta .event-row {
     background-color: #333;
     color: white;
 }
-.vanta .popContgent{
+.vanta .popContgent, .vanta p, .vanta b{
   color: white;
 }
 /*white*/

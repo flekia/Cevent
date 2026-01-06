@@ -86,6 +86,7 @@
     "month": "February",
     "events": [
         {"day":[12,13,14,16,18,19], "title":"Final Exam Week","detail":"Finals Exam"},
+        {"day": 21, "title":"Grade Consultation","detail":"Check"},
         {"day": [23,24,25,26,27,28], "title": "Term Break"}
     ]
   },
@@ -155,7 +156,6 @@
     "month": "February",
     "events": [
       {"day": 17, "title":"Chinese New Year","detail":"Holiday"},
-      {"day": 21, "title":"Grade Consultation","detail":"Holiday"},
       {"day": 25,"title":"EDSA Revolution Anniversary","detail":"Holiday"}
     ]
   },

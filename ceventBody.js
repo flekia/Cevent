@@ -197,7 +197,14 @@ function renderCalendar(month, year) {
 //announcements.json fetch
 function findBaseEntry(year, monthName){
   if (!window.__baseAnnouncements) return null;
-  return window.__baseAnnouncements.find(e => String(e.year) === String(year) && e.month.toLowerCase() === monthName.toLowerCase());
+  const itsAMatch =  window.__baseAnnouncements.find(e => e.month.toLowerCase() === monthName.toLowerCase() && (
+    String(e.year) === String(year)|| e.year === undefined || e.year === null));
+    if (itsAMatch.length === 0) return null;
+    return {
+      year: String(year),
+      month: monthName,
+      events: itsAMatch.flatMap(e => e.events || [])
+    };
 }
 
 //finds user plans
@@ -208,12 +215,30 @@ function findUserEntry(year, monthName){
 
 //returns an object with merged events array (base + user)
 function findAnnouncementsEntry(year, monthName){
-  const base = findBaseEntry(year, monthName);
-  const user = findUserEntry(year, monthName);
   const events = [];
-  if (base && Array.isArray(base.events)) events.push(...base.events);
-  if (user && Array.isArray(user.events)) events.push(...user.events);
-  return { year: String(year), month: monthName, events };
+  if (window.__baseAnnouncements){
+    for (const e of window.__baseAnnouncements){
+      if (
+        e.month.toLowerCase() === monthName.toLowerCase() && 
+        (
+          String(e.year) === String(year) || e.year === undefined || e.year === null
+        )
+      ){
+        if (Array.isArray(e.events)){
+          events.push(...e.events);
+        }
+      }
+    }
+  }
+  const user = findUserEntry(year,monthName);
+if (user && Array.isArray(user.events)){
+  events.push(...user.events);
+}
+return {
+  year: String(year),
+  month: monthName,
+  events
+};
 }
 
 //build map day->events for a month entry
@@ -350,8 +375,8 @@ fetch('announcements.json').then(r => r.ok ? r.json() : Promise.reject('failed')
 //To add events
 eventSubmit.onclick = function() {
   // query inputs fresh to handle dynamic content safely
-  const title = document.getElementById('eventTitle')?.value.trim() || '';
-  const detail = document.getElementById('eventDetail')?.value.trim() || '';
+  const title = (document.getElementById('eventTitle') && document.getElementById('eventTitle').value) ? document.getElementById('eventTitle').value.trim() : '';
+  const detail = (document.getElementById('eventDetail') && document.getElementById('eventDetail').value) ? document.getElementById('eventDetail').value.trim() : '';
   const startVal = document.getElementById('startOfEvent') ? document.getElementById('startOfEvent').value : '';
   const endVal = document.getElementById('endOfEvent') ? document.getElementById('endOfEvent').value : '';
   if (!startVal || !endVal){

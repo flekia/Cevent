@@ -30,7 +30,7 @@
     "events": [
         
         {"day": [13, 14, 16, 17, 18, 19], "title": "Final Exam Week", "detail": "Finals Exam"},
-        {"day": 23, "title": "Grade Consultation", "detail":"Check"}
+        {"day": 23, "title": "Grade Consultations", "detail":"Check"}
     ]
   },
   {

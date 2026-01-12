@@ -606,7 +606,41 @@ function renderEventsBoard() {
     }
   }
 }
+//popup
+    document.addEventListener("DOMContentLoaded", function() {
+      const popUpOverlay = document.getElementById("popupAds");
+      const closePop = document.getElementById("closePop");
+      const popUp = document.getElementById("popAdditions");
+      function openPopUp() {
+        popUpOverlay.style.display = "block";
+      }
+      function closePopping(){
+        popUpOverlay.style.display = "none";
+      }
+     openPopUp();
 
+    closePop.addEventListener("click", closePopping);
+
+    popUpOverlay.addEventListener("click", function (event){
+      if (event.target === popUpOverlay) {
+        closePopping();
+      }
+    });
+    });
+    function ads() {
+    const adsPop = document.getElementById("popupAds");
+    adsPop.style.display = "block";
+    const img = document.getElementById("imageBoard");
+    const adsPics = [
+      "https://i.imgflip.com/9po71x.jpg",
+      "https://media1.tenor.com/m/Rze6ZnVMFgsAAAAC/i-don%27t-know-what-to-say.gif" //alden richards
+    ];
+    const rouletteOnAds = adsPics[Math.floor(Math.random() * adsPics.length)];
+    console.log(rouletteOnAds);
+    img.src = rouletteOnAds;
+    console.log("This one was picked: ", rouletteOnAds);
+    img.style.width = "75%";
+    }
 // Initial render of events board
 renderEventsBoard();
 navigator.serviceWorker.register('/Cevent/sw.js', {scope: '/Cevent/'});

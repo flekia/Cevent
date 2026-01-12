@@ -45,6 +45,24 @@ body{
     display: flex;
     justify-content: center;
 }
+#imageBoard{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  display: flex;
+}
+#closePop{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: black;
+  background-color: whitesmoke;
+}
+#closePop:hover{
+  background-color: lightgray;
+}
 /*popup*/
 .poping{
   display: none;
@@ -54,6 +72,7 @@ body{
   background-color: rgba(0,0,0,0.35);
   z-index: 9999;
   pointer-events: auto;
+  align-items: center;
 }
 .poping .popung{
   position: absolute;
@@ -146,6 +165,11 @@ button:hover{
 }
 
 /*event color classes */
+.calendar-dates .date-cell:not([class*="evt-"]):hover {
+  background-color: black;
+  color: white;
+}
+
 .calendar-dates .evt-holiday {
   background-color: rebeccapurple;
   color: white;
@@ -218,7 +242,7 @@ button:hover{
   background-color: white;
   border-radius: 4px;
 }
-/*vanta*/
+/*vanta (black)*/
 body.vanta {
     background-color: #000000;
     color: white;
@@ -259,8 +283,12 @@ body.vanta .event-row {
     background-color: #333;
     color: white;
 }
-.vanta .popContgent, .vanta p, .vanta b{
+.vanta #closePop{
   color: white;
+  background-color: gray;
+}
+.vanta #closePop:hover{
+  background-color: black;
 }
 /*white*/
 body.white {
@@ -275,6 +303,7 @@ body.white .nav {
     color: black;
 }
 
+/*mobile version*/
 @media (max-width: 420px){
   .calendar{
     width: 100%;

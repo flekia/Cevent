@@ -12,7 +12,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="cevent.css">
 </head>
-<body class="main">
+<body class="main" onload="ads()">
     <!--nav bar-->
     <div class="nav">
         <img src="Images/cevent_icon_option_a.png" alt="Cevent icon" id="icon">
@@ -39,6 +39,16 @@
     <button accesskey="w" style="background: white;color: black; border: gainsboro 2px solid;" onclick="themeChange('white')">Pure White</button>
                     
                 <br><button type="button" id="closeTheme">Okay!</button>
+            </div>
+        </div>
+    </div>
+    <!--popup for ads-->
+    <div class="poping" id="popupAds">
+        <div class="popung" id="popAdditions">
+            <button type="button" id="closePop">&times;</button>
+            <div class="popContgentAds">
+                <img id="imageBoard">
+                </img>
             </div>
         </div>
     </div>

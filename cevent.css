@@ -201,7 +201,7 @@ button:hover{
   color: white;
   border-radius: 6px;
 }
-.calendar-dates .evt-event{
+.calendar-dates .evt-gethering{
   background-color: lightblue;
   border-radius: 6px;
 }
@@ -304,6 +304,12 @@ body.vanta .event-row {
 }
 .vanta #closePop:hover{
   background-color: black;
+}
+.vanta p{
+  color: white;
+}
+.vanta #text{
+  color: white !important;
 }
 /*white*/
 body.white {

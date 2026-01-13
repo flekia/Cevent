@@ -265,7 +265,7 @@ function classForEvents(evts){
   if (text.includes('midterm')) return 'evt-midterm';
   if (text.includes('holiday')) return 'evt-holiday';
   if (text.includes('check') || text.includes('grade consultation')) return 'evt-check';
-  if (text.includes('event')) return 'evt-event';
+  if (text.includes('gathering')) return 'evt-gethering';
   return 'evt-none';
 }
 renderCalendar(currentMonth, currentYear);
@@ -644,5 +644,4 @@ function renderEventsBoard() {
     }
 // Initial render of events board
 renderEventsBoard();
-        navigator.serviceWorker.register('/Cevent/sw.js', {scope: '/Cevent/'});
-      console.log("sw.js now working!");
+      

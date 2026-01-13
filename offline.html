@@ -12,7 +12,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="cevent.css">
 </head>
-<body class="main" onload="ads()">
+<body class="main">
     <!--nav bar-->
     <div class="nav">
         <img src="Images/cevent_icon_option_a.png" alt="Cevent icon" id="icon">
@@ -28,6 +28,7 @@
         <a id="addEvents" href="#"><b>+</b></a>
     </div>
     </div>
+    <!--popup if user is offline-->
     
     <!--popup for themes-->
     <div class="poping" id="popupThemes">
@@ -70,10 +71,10 @@
                 <input type="text" id="eventTitle" placeholder="Event title"> <br>
                 <label for="eventDetail">Detail:</label>
                 <input type="text" id="eventDetail" placeholder="What is it about?"> <br>
-                <label for="startOfEvent">Start:</label>
-                <input type="datetime-local" name="Start" id="startOfEvent" required> <br>
+                <label for="startOfEvent">Start"</label>
+                <input type="datetime" name="Start" id="startOfEvent" required> <br>
                 <label for="endOfEvent">End:</label>
-                <input type="datetime-local" name="End" id="endOfEvent" required> 
+                <input type="datetime" name="End" id="endOfEvent" required> 
                 <button type="button" id="submits">Submit</button>
                 <button type="button" id="cancel">Cancel</button>
             </div>
@@ -94,6 +95,10 @@
 </div>
     <div class="calendar-dates"></div>
     </div>
-    <script src="ceventBody.js" defer></script>
+    <!--popup if offline-->
+    <div class="popupOff">
+        <p>You are offline.</p>
+    </div>
+    <script src="ceventBody.js"></script>
 </body>
 </html>

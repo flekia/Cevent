@@ -199,7 +199,7 @@ function findBaseEntry(year, monthName){
   if (!window.__baseAnnouncements) return null;
   const itsAMatch =  window.__baseAnnouncements.find(e => e.month.toLowerCase() === monthName.toLowerCase() && (
     String(e.year) === String(year)|| e.year === undefined || e.year === null));
-    if (itsAMatch.length === 0) return null;
+    if (itsAMatch) return null;
     return {
       year: String(year),
       month: monthName,
@@ -265,6 +265,7 @@ function classForEvents(evts){
   if (text.includes('midterm')) return 'evt-midterm';
   if (text.includes('holiday')) return 'evt-holiday';
   if (text.includes('check') || text.includes('grade consultation')) return 'evt-check';
+  if (text.includes('event')) return 'evt-event';
   return 'evt-none';
 }
 renderCalendar(currentMonth, currentYear);
@@ -375,13 +376,13 @@ fetch('announcements.json').then(r => r.ok ? r.json() : Promise.reject('failed')
 //To add events
 eventSubmit.onclick = function() {
   // query inputs fresh to handle dynamic content safely
-  const title = (document.getElementById('eventTitle') && document.getElementById('eventTitle').value) ? document.getElementById('eventTitle').value.trim() : '';
+  const evenTitle = document.getElementById("eventTitle").value.trim();
   const detail = (document.getElementById('eventDetail') && document.getElementById('eventDetail').value) ? document.getElementById('eventDetail').value.trim() : '';
   const startVal = document.getElementById('startOfEvent') ? document.getElementById('startOfEvent').value : '';
   const endVal = document.getElementById('endOfEvent') ? document.getElementById('endOfEvent').value : '';
   if (!startVal || !endVal){
     pip.style.display = 'block';
-    title.innerText = "Incomplete...";
+    evenTitle.innerText = "Incomplete...";
     text.innerText = "Please provide both start and end dates.";
     btn.innerText = "Okay";
     btn.addEventListener("click",function(){
@@ -505,7 +506,7 @@ eventSubmit.onclick = function() {
       }
       const days = groups[key];
       const dayField = days.length === 1 ? days[0] : days.slice().sort((a,b)=>a-b);
-      entry.events.push({ day: dayField, title: title || 'Personal Event', detail: detail || 'None' });
+      entry.events.push({ day: dayField, title: evenTitle || 'Personal Event', detail: detail || 'None' });
     }
     //put user plans to localStorage (cache, please don't tell the user to delete their cache if they want their plans saved)
     try{ saveUserPlansToStorage(); } catch(e){ console.warn('save user plans error', e); }
@@ -643,5 +644,5 @@ function renderEventsBoard() {
     }
 // Initial render of events board
 renderEventsBoard();
-navigator.serviceWorker.register('/Cevent/sw.js', {scope: '/Cevent/'});
+    navigator.serviceWorker.register('/Cevent/sw.js', {scope: '/Cevent/'});
       console.log("sw.js now working.");

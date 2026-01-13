@@ -637,7 +637,6 @@ function renderEventsBoard() {
       "https://media1.tenor.com/m/Rze6ZnVMFgsAAAAC/i-don%27t-know-what-to-say.gif" //alden richards
     ];
     const rouletteOnAds = adsPics[Math.floor(Math.random() * adsPics.length)];
-    console.log(rouletteOnAds);
     img.src = rouletteOnAds;
     console.log("This one was picked: ", rouletteOnAds);
     img.style.width = "75%";
@@ -645,4 +644,4 @@ function renderEventsBoard() {
 // Initial render of events board
 renderEventsBoard();
     navigator.serviceWorker.register('/Cevent/sw.js', {scope: '/Cevent/'});
-      console.log("sw.js now working.");
+      console.log("sw.js now working!");

@@ -1,21 +1,16 @@
-//copy pasted from My Runs
-const CACHE_VERSION = '#69'
-const CACHE_NAME = `${CACHE_VERSION}th Cevent Version`; 
-
+const CACHE_VERSION = 'v1125';
+const CACHE_NAME = `calendar-update${CACHE_VERSION}`; 
+const BASE = '/Cevent/';
 self.addEventListener('install', (event) => {
-const BASE = self.location.origin + '/Cevent/';
 const urlsToCache = [
   BASE,
   BASE + 'index.html',
-  BASE + 'admin.html',
+  BASE + 'offline.html',
   BASE + 'manifest.json',
   BASE + 'announcements.json',
   BASE + 'ceventBody.js',
-  BASE + 'adminInJS.js',
   BASE + 'cevent.css',
-  BASE + 'sw.js',
-  BASE + 'Images/cevent_icon_option_a.png',
-  BASE + 'Images/admin_panel.png'
+  BASE + 'sw.js'
 ];
 
 
@@ -32,6 +27,7 @@ const urlsToCache = [
     })
   );
   self.skipWaiting();
+  console.log("Installed other files.")
 });
 
 self.addEventListener('activate', event => {
@@ -61,7 +57,7 @@ self.addEventListener('fetch', event => {
         })
         .catch(() => {
           console.warn("I'm serving the offline.html version.");
-          return caches.match(self.location.origin + '/Cevent/offline.html');
+          return caches.match(BASE + 'offline.html');
   })
 );
   } else {

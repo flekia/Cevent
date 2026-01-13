@@ -1,14 +1,98 @@
+<!--https://www.geeksforgeeks.org/javascript/how-to-create-a-dynamic-calendar-in-html-css-javascript/-->
+<!--https://wpdean.com/html-calendar/-->
+<!--https://dev.to/wizdomtek/creating-a-dynamic-calendar-using-html-css-and-javascript-29m-->
+<!--https://stackoverflow.com/questions/17219757/how-to-place-text-and-an-image-next-to-each-other-in-html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cevent</title>
-    <link rel="icon" href="/Images/cevent_icon_option_a.png" type="image/png">
+    <link rel="icon" href="Images/cevent_icon_option_a.png" type="image/png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="cevent.css">
 </head>
-<body>
-    <script src="ceventBody.js"></script>
+<body class="main" onload="ads()">
+    <div class="nav">
+        <img src="Images/cevent_icon_option_a.png" alt="Cevent icon" id="icon">
+        <h3 id="titles">Cevent</h3>
+        <div class="deadSpace">
+            <button id="previousMonth"><</button>
+            <div id="month-year" style="cursor: progress;"></div>
+            <button id="nextMonth">></button>
+        </div>
+    <div class="whatToDo">
+        <a href="#" id="themes">&#x1F3A8;</a>
+        <a id="questionOfThyUser" href="#"><b>?</b></a>
+        <a id="addEvents" href="#"><b>+</b></a>
+    </div>
+    </div>
+    
+    <!--popup for themes-->
+    <div class="poping" id="popupThemes">
+        <div class="popung" id="popaps">
+            <div class="popContgent">
+                <h2 id="tite">Change your themes here:</h2>
+    
+    <button accesskey="b" style="background: black;color: white; border: gray 2px solid;" onclick="themeChange('vanta')">Pure Black</button>
+    <button accesskey="w" style="background: white;color: black; border: gainsboro 2px solid;" onclick="themeChange('white')">Pure White</button>
+                    
+                <br><button type="button" id="closeTheme">Okay!</button>
+            </div>
+        </div>
+    </div>
+    <!--popup for ads-->
+    <div class="poping" id="popupAds">
+        <div class="popung" id="popAdditions">
+            <button type="button" id="closePop">&times;</button>
+            <div class="popContgentAds">
+                <img id="imageBoard">
+                </img>
+            </div>
+        </div>
+    </div>
+    <!--popup in general-->
+    <div class="poping" id="popup">
+        <div class="popung" id="popaps">
+            <div class="popContgent">
+                <h2 id="tite"></h2>
+                <p id="text"></p>
+                <button type="button" id="okayISeeYou">Okay!</button>
+            </div>
+        </div>
+    </div>
+    <!--input for calendar-->
+    <div class="poping" id="popupEvent">
+        <div class="popung" id="popaps">
+            <div class="popContgent">
+                <label for="eventTitle">Title:</label>
+                <input type="text" id="eventTitle" placeholder="Event title"> <br>
+                <label for="eventDetail">Detail:</label>
+                <input type="text" id="eventDetail" placeholder="What is it about?"> <br>
+                <label for="startOfEvent">Start:</label>
+                <input type="datetime-local" name="Start" id="startOfEvent" required> <br>
+                <label for="endOfEvent">End:</label>
+                <input type="datetime-local" name="End" id="endOfEvent" required> 
+                <button type="button" id="submits">Submit</button>
+                <button type="button" id="cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--calendar-->
+    <div class="calendar">
+        </div>
+    <div class="calendar-body">
+        <div class="calendar-weekdays">
+            <div>Sun</div>
+  <div>Mon</div>
+  <div>Tue</div>
+  <div>Wed</div>
+  <div>Thu</div>
+  <div>Fri</div>
+  <div>Sat</div>
+</div>
+    <div class="calendar-dates"></div>
+    </div>
+    <script src="ceventBody.js" defer></script>
 </body>
 </html>

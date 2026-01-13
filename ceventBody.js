@@ -644,4 +644,5 @@ function renderEventsBoard() {
     }
 // Initial render of events board
 renderEventsBoard();
-      
+      navigator.serviceWorker.register('/Cevent/sw.js', {scope: '/Cevent/'});
+      console.log("sw.js now working!");

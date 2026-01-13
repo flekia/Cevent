@@ -166,19 +166,21 @@ button:hover{
   word-break:keep-all;
 }
 .calendar-dates div:hover {
-  background-color: black;
+  background-color: gray;
   color: white;
+  border-radius: 6px;
 }
 .current-date {
-  background-color: #000000;
-  color: #fff;
+  background-color: #ddd;
+  color: black;
   border-radius: 5%;
 }
 
 /*event color classes */
 .calendar-dates .date-cell:not([class*="evt-"]):hover {
-  background-color: black;
+  background-color: gray;
   color: white;
+  border-radius: 6px;
 }
 
 .calendar-dates .evt-holiday {
@@ -257,7 +259,7 @@ button:hover{
   background-color: white;
   border-radius: 4px;
 }
-/*vanta (black)*/
+/*vanta*/
 body.vanta {
     background-color: #000000;
     color: white;
@@ -287,12 +289,16 @@ body.vanta .event-row {
     background-color: rgb(29,29,29);
     color: white;
 }
-.vanta #previousMonth:hover, .vanta #nextMonth:hover{
+.vanta #previousMonth:hover{
     background-color: #333;
 }
-.vanta .calendar-dates div:hover {
-  background-color: gray;
-  color: black;
+.vanta #nextMonth:hover{
+  background-color: #333;
+}
+.vanta .calendar-dates .date-cell div:hover {
+  background-color: #333;
+  color: white;
+  border-radius: 6px;
 }
 .vanta .popung, .vanta h2 {
     background-color: #333;
@@ -310,6 +316,13 @@ body.vanta .event-row {
 }
 .vanta #text{
   color: white !important;
+}
+.vanta .popupOff{
+  background-color: #fff;
+  color: black;
+}
+.vanta .current-date{
+  background-color: gray;
 }
 /*white*/
 body.white {

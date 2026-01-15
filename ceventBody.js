@@ -197,9 +197,9 @@ function renderCalendar(month, year) {
 //announcements.json fetch
 function findBaseEntry(year, monthName){
   if (!window.__baseAnnouncements) return null;
-  const itsAMatch =  window.__baseAnnouncements.find(e => e.month.toLowerCase() === monthName.toLowerCase() && (
+  const itsAMatch =  window.__baseAnnouncements.filter(e => e.month.toLowerCase() === monthName.toLowerCase() && (
     String(e.year) === String(year)|| e.year === undefined || e.year === null));
-    if (itsAMatch) return null;
+    if (itsAMatch.length === 0) return null;
     return {
       year: String(year),
       month: monthName,
@@ -633,8 +633,7 @@ function renderEventsBoard() {
     adsPop.style.display = "block";
     const img = document.getElementById("imageBoard");
     const adsPics = [
-      "https://i.imgflip.com/9po71x.jpg",
-      "https://media1.tenor.com/m/Rze6ZnVMFgsAAAAC/i-don%27t-know-what-to-say.gif" //alden richards
+      "Images/cevent_main_ad.png"
     ];
     const rouletteOnAds = adsPics[Math.floor(Math.random() * adsPics.length)];
     console.log(rouletteOnAds);
@@ -644,5 +643,5 @@ function renderEventsBoard() {
     }
 // Initial render of events board
 renderEventsBoard();
-      navigator.serviceWorker.register('/Cevent/sw.js', {scope: '/Cevent/'});
+navigator.serviceWorker.register('/Cevent/sw.js', {scope: '/Cevent/'});
       console.log("sw.js now working!");

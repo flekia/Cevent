@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v1130';
+const CACHE_VERSION = 'v1131';
 const CACHE_NAME = `calendar-update${CACHE_VERSION}`; 
 const BASE = '/Cevent/';
 self.addEventListener('install', (event) => {
@@ -11,7 +11,7 @@ const urlsToCache = [
   BASE + 'ceventBody.js',
   BASE + 'cevent.css',
   BASE + 'sw.js',
-  BASE + '/Images/'
+  BASE + 'Images/'
 ];
 
 

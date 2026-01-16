@@ -11,7 +11,8 @@ const urlsToCache = [
   BASE + 'ceventBody.js',
   BASE + 'cevent.css',
   BASE + 'sw.js',
-  BASE + 'Images/'
+  BASE + 'Images/cevent_icon_option_a.png',
+  BASE + 'Images/cevent_main_ad.png'
 ];
 
 

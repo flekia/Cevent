@@ -18,7 +18,7 @@ const offlineButt = document.getElementById("okayISeeYouSoon");
 themesOfCustomer.onclick = function(){
     mainPopup.style.display = 'none';
     pip.style.display = 'none';
-    title.textContent = "Change Themes";
+    mainPopupTitle.textContent = "Change Themes";
     peepee.style.display = "block";
     themesBtn.onclick = function(){peepee.style.display = "none";}
 }
@@ -65,7 +65,7 @@ document.addEventListener("resize", adjustNavLayout);
 //question
 askingCustomer.onclick = function(){
     pip.style.display = "block";
-    title.innerText = "Unfamilliar?";
+    mainPopupTitle.innerText = "Unfamilliar?";
     text.innerText = `Cevent is a simple calendar planner that helps you keep track. Click + to add events, and if events overlap, there will be a warning if you want to continue or not!`;
     btn.innerText = "Got it!";
     btn.onclick = function(){
@@ -380,6 +380,7 @@ eventSubmit.onclick = function() {
   const detail = (document.getElementById('eventDetail') && document.getElementById('eventDetail').value) ? document.getElementById('eventDetail').value.trim() : '';
   const startVal = document.getElementById('startOfEvent') ? document.getElementById('startOfEvent').value : '';
   const endVal = document.getElementById('endOfEvent') ? document.getElementById('endOfEvent').value : '';
+  piop.style.display = "none"; //hide event when submitting
   if (!startVal || !endVal){
     pip.style.display = 'block';
     evenTitle.innerText = "Incomplete...";
@@ -395,8 +396,8 @@ eventSubmit.onclick = function() {
   if (endDate < startDate){
     pip.style.display = 'block';
     title.innerText = "Are you a time traveller?"; //bernardo
-    text.innerText = "Unless you are Sir Odranreb Guillermo, you're not a time traveler! (Your end date is before the start date)";
-    btn.innerText = "Okay";
+    text.innerText = "Unless you are Sir Ordanreb, you're not a time traveler! (Your end date is before the start date)";
+    btn.innerText = "I guess I'm not...";
     btn.addEventListener("click",function(){
         pip.style.display = "none";
     });
@@ -643,5 +644,3 @@ function renderEventsBoard() {
     }
 // Initial render of events board
 renderEventsBoard();
-navigator.serviceWorker.register('/Cevent/sw.js', {scope: '/Cevent/'});
-      console.log("sw.js now working!");
